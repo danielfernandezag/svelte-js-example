@@ -56,6 +56,7 @@
     border-color: purple;
     background: plum;
     color: purple;
+    border-radius: 5px;
     width: 45%;
     height: 100%;
     cursor: pointer;
@@ -81,6 +82,27 @@
     padding: 1rem;
     width: 90%;
     margin: 0.5rem 0;
+  }
+  @media screen and (max-width: 600px) {
+    #container {
+      border-radius: 20px;
+      height: 100%;
+    }
+    #btn-container {
+      width: 80%;
+    }
+    #btn-1,
+    #btn-2 {
+      border-radius: 20px;
+    }
+    #cards-container {
+      height: 80%;
+      width: 80%;
+    }
+    .card-item {
+      width: 80%;
+      border-radius: 20px;
+    }
   }
 </style>
 
