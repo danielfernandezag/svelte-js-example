@@ -70,7 +70,7 @@
     align-items: center;
     align-content: center;
     justify-items: center;
-    justify-content: center;
+    justify-content: start;
   }
   .card-item {
     text-align: start;
