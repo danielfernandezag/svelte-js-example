@@ -85,7 +85,7 @@
 </style>
 
 <div id="container">
-  <h1 id="title">{name}: {counter}</h1>
+  <h1 id="title">{name} {counter}</h1>
   <div id="btn-container">
     <button id="btn-1" on:click={handleAdd}>ADD</button>
     <button id="btn-2" on:click={handleSub}>SUB</button>
