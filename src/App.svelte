@@ -1,8 +1,12 @@
 <script>
-  export let name;
+  import Buttons from "./Buttons.svelte";
+  import CardsList from "./CardsList.svelte";
+  // props recieved are declared with export and can have default values if not recieved or undefined from parent
+  export let name = "";
+  // state variables are declared normally
   let counter = 0;
   let cards = [];
-
+  // methods
   const handleAdd = () => {
     const newCards = cards;
     counter++;
@@ -22,7 +26,7 @@
 </script>
 
 <style>
-  #container {
+  div {
     border: solid 1px #adff2f;
     border-radius: 5px;
     width: 100%;
@@ -35,86 +39,21 @@
     justify-items: center;
     background: #acff2f8f;
   }
-  #title {
+  h1 {
     color: purple;
     font-size: 2.5rem;
     text-decoration: underline;
   }
-  #btn-container {
-    display: flex;
-    flex-direction: row;
-    width: 50%;
-    height: 10%;
-    align-items: center;
-    align-content: center;
-    justify-items: center;
-    justify-content: space-between;
-  }
-
-  #btn-1,
-  #btn-2 {
-    border-color: purple;
-    background: plum;
-    color: purple;
-    border-radius: 5px;
-    width: 45%;
-    height: 100%;
-    cursor: pointer;
-  }
-  #cards-container {
-    height: 60%;
-    width: 50%;
-    max-height: 60%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-items: center;
-    justify-content: start;
-  }
-  .card-item {
-    text-align: start;
-    color: purple;
-    border: solid 1px purple;
-    background: plum;
-    border-radius: 5px;
-    padding: 1rem;
-    width: 90%;
-    margin: 0.5rem 0;
-  }
   @media screen and (max-width: 600px) {
-    #container {
+    div {
       border-radius: 20px;
       height: 100%;
-    }
-    #btn-container {
-      width: 80%;
-    }
-    #btn-1,
-    #btn-2 {
-      border-radius: 20px;
-    }
-    #cards-container {
-      height: 80%;
-      width: 80%;
-    }
-    .card-item {
-      width: 80%;
-      border-radius: 20px;
     }
   }
 </style>
 
-<div id="container">
-  <h1 id="title">{name} {counter}</h1>
-  <div id="btn-container">
-    <button id="btn-1" on:click={handleAdd}>ADD</button>
-    <button id="btn-2" on:click={handleSub}>SUB</button>
-  </div>
-  <div id="cards-container">
-    {#each cards as card}
-      <div class="card-item">Card: {card.id}</div>
-    {/each}
-  </div>
+<div>
+  <h1>{name} {counter}</h1>
+  <Buttons on:handleAdd={handleAdd} on:handleSub={handleSub} />
+  <CardsList {cards} />
 </div>
